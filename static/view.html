@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <form >
+        <label for="email">Email : 
+            <input type="text" name="email" id="email">
+        </label>
+        <label for="name">
+            Nama : <input type="text" name="nama" id="name">
+        </label>
+        <label for="password">
+            Password : <input type="text" name="password" id="password">
+        </label>
+    </form>
+
+
+    <input type="button" id="getdata" value="GetData">
+    <h1 id="response">1dataGet=</h1>
+
+    <script>
+          
+
+        function getData(){
+
+            request = new Request("/user/login",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json",
+                    "Accept":"application/json"
+                },
+                body: JSON.stringify({
+                    email: document.getElementById("email").value,
+            
+                    password: document.getElementById("password").value
+
+
+                })
+            })
+
+            const response = fetch(request)
+
+            const dataGet = response.then((data)=>data.headers.values)
+            // console.log(response)
+            // response.then((data)=>console.log(data.json) )
+            console.log(response.then((data)=>data.body.getReader))
+
+            
+           
+
+
+
+
+
+            
+        //     console.log("asdasdsada")
+        //   const ajax = new XMLHttpRequest();
+        //   ajax.open("GET","users/8");
+        //   ajax.setRequestHeader('Content-Type', 'application/json')
+        //   ajax.send()
+          
+
+          console.log("as")
+        }
+
+        document.getElementById("getdata").onclick =getData;
+
+
+    </script>
+    
+</body>
+</html>
