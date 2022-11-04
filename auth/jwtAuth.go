@@ -41,7 +41,7 @@ func CheckValidTokenJwt(tokenString string) bool {
 		return true
 
 	} else {
-		fmt.Println("Token TIdak Valid :", err)
+		fmt.Println("Token   TIdak Valid :", err)
 		return false
 	}
 
