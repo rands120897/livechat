@@ -16,7 +16,7 @@ func InsertMassageWeb(wr http.ResponseWriter, r *http.Request, params httprouter
 	insertMessage := models.WebRequestInsertMessage{}
 	err := decoder.Decode(&insertMessage)
 	if err != nil {
-		fmt.Fprintf(wr, "Decode gagal")
+		fmt.Fprintf(wr, "Decod gagal")
 	}
 
 	MessageService := service.CreateMessage(r.Context(), insertMessage)
